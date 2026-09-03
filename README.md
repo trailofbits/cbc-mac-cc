@@ -3,16 +3,17 @@
 A Lean 4 formalization of the finite-message Random Systems bound corresponding
 to CR18, Theorem 6.1.
 
-For a prefix-free block former $\mathsf{bf} : M \to \operatorname{List}(X)$ and a total
+For a prefix-free block former $\mathsf{bf} : M \to \mathrm{List}(X)$ and a total
 block budget $q$, the development proves
 
-$$
-\Delta\!\left(
-  \theta_q \circ \operatorname{CBC}_{\mathsf{bf}}\bigl([q]R_{X,X}\bigr),
-  \theta_qV_{M,X}
+```math
+\Delta\left(
+  \theta_q \circ \mathrm{CBC}_{\mathsf{bf}}\bigl([q]R_{X,X}\bigr),
+  \theta_q V_{M,X}
 \right)
 \leq \frac{q^2}{2\lvert X\rvert}.
-$$
+```
+
 Here $M$ is a finite nontrivial message type and $X$ is a finite nonempty
 additive commutative group.
 
