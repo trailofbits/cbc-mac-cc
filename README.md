@@ -44,8 +44,8 @@ the main theorem and its dependencies.
 
 ## Build
 
-The project uses Lean 4.33.1 and expects `abstract-crypto` at
-`../abstract-crypto`.
+The project uses Lean 4.33.1. The Constructive Cryptography library is a git
+dependency; `lake-manifest.json` pins the commit it was checked against.
 
 ```sh
 lake build CBCMAC CBCMACTests
