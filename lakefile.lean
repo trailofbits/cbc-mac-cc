@@ -8,7 +8,9 @@ package «cbc-mac-cc» where
     ⟨`relaxedAutoImplicit, false⟩
   ]
 
-require ConstructiveCryptography from "../abstract-crypto"
+/-- The library, from GitHub; `lake-manifest.json` pins the exact commit. -/
+require ConstructiveCryptography from git
+  "https://github.com/trailofbits/constructive-cryptography" @ "categorical"
 
 @[default_target]
 lean_lib CBCMAC where
