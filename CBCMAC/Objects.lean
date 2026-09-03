@@ -225,7 +225,10 @@ def cbcPDS [Fintype M] [AddMonoid X]
     Distribution.fTransform_isProbDist _
       roundFunction.law.2⟩
 
-scoped notation:max "CBC[" blockForm "]" " • " roundFunction:max =>
+/-- The fixed-interface law of CBC over a round-function law, as a
+`functionEvaluator` pushforward. Distinct from converter attachment
+`CBC[blockForm] • R`, which acts on ambient systems. -/
+scoped notation:max "CBCLaw[" blockForm "] " roundFunction:max =>
   Distribution.fTransform
     (fun function =>
       RandomSystems.System.functionEvaluator fun message =>

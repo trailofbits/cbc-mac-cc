@@ -154,7 +154,7 @@ lemma cbcCollisionGame_conditionallyEquivalent [Nontrivial M]
 
 /-- Restricting both systems by the total-block condition preserves their
 conditional equivalence. -/
-lemma theta_cbcCollisionGame_conditionallyEquivalent [Nontrivial M]
+lemma theta_cbcCollisionGame_conditionallyEquivalent
     (blockForm : M → List X) (q : Nat)
     (conditionalEquivalence :
       CBĈ[blockForm].1 |≡ (V : RandomSystems.PDS M X)) :
@@ -196,7 +196,7 @@ lemma underlying_theta_cbcCollisionGame
     (roundFunction : RandomSystems.RandomFunction X X) :
     RandomSystems.PDG.underlying
         (theta blockForm q • cbcCollisionGame blockForm roundFunction).1 =
-      theta blockForm q • (CBC[blockForm] • roundFunction) := by
+      theta blockForm q • CBCLaw[blockForm] roundFunction := by
   change RandomSystems.PDG.underlying
       (RandomSystems.PDG.filterDom
         (theta blockForm q).predicate
@@ -205,13 +205,19 @@ lemma underlying_theta_cbcCollisionGame
     RandomSystems.PDS.filterDom
       (theta blockForm q).predicate
       (theta blockForm q).prefixClosed
-      (CBC[blockForm] • roundFunction)
+      (CBCLaw[blockForm] roundFunction)
   rw [RandomSystems.PDG.underlying_filterDom]
   simp only [cbcCollisionGame]
   rw [RandomSystems.PDG.underlying_ofFunction]
 
 /-- CR18, Theorem 6.1: CBC with a prefix-free block former is within
-`q² / (2 |X|)` of the ideal random function under a total block budget `q`. -/
+`q² / (2 |X|)` of the ideal random function under a total block budget `q`.
+
+Two hypotheses are silent in CR18. `M` is finite, the repository's
+bounded-message specialization. `Nontrivial M` is necessary: for a single
+message encoded as the empty block list, `PrefixFree` holds vacuously, CBC
+answers the constant `0`, and the distance to the uniform `V` is `1 - 1/|X|`,
+which exceeds the bound at `q = 0`. -/
 theorem cbc_randomness_expander [Nontrivial M]
     -- Message-to-block encoding.
     (blockForm : M → List X)

@@ -31,6 +31,12 @@ exposes:
 - `CBCMAC.supWinProb_blind_filterDom_cbc_le`, the blind-game collision bound
   $q^2 / (2 \lvert X \rvert)$.
 
+Two hypotheses are silent in CR18: the message type $M$ is finite, and $M$
+has at least two elements. The second is necessary. With a single message
+encoded as the empty block list, prefix-freeness holds vacuously, CBC is the
+constant $0$, and its distance to $V$ is $1 - 1/\lvert X \rvert$, above the
+bound at $q = 0$.
+
 ## Modules
 
 | Module | Contents |

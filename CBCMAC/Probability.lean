@@ -276,7 +276,7 @@ lemma cbcPDS_advantage_le_restrictedCBCPDS_advantage
           cbcPDS blockForm roundFunction)
         (DDC.asHom ((theta blockForm q).toDDC (Y := X)) •
           idealFunction.toAmbientPDS) ≤
-      Adv(theta blockForm q • (CBC[blockForm] • roundFunction),
+      Adv(theta blockForm q • CBCLaw[blockForm] roundFunction,
         (theta blockForm q • idealFunction :
           Distribution.ProbDist (System.DDS M X))) := by
   -- Package the two common-domain probability laws.
