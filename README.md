@@ -19,13 +19,17 @@ additive commutative group.
 
 ## Main result
 
-[`CBCMAC.cbc_randomness_expander`](CBCMAC/Main.lean) compares the public random
-systems `CBCMAC.cbcReal` and `CBCMAC.cbcIdeal`. The development also exposes:
+[`CBCMAC.cbc_randomness_expander`](CBCMAC/Main.lean) bounds the distance
+between $\theta_q \circ \operatorname{CBC}_{\mathsf{bf}} \circ [q]R$ and
+$\theta_q \circ V$ for a prefix-free block former. The development also
+exposes:
 
-- `CBCMAC.realPDS_eq`, the exact CBC attachment equation;
-- `CBCMAC.cbcCollisionGame_conditionallyEquivalent_urf`, CR18 equation (6.2);
-- `CBCMAC.supWinProb_blind_restrictedCBCCollisionGame_le`, the blind-game
-  collision bound $q^2/(2\lvert X\rvert)$.
+- `CBCMAC.apply_cbc_randomFunction`, the exact CBC attachment equation;
+- `CBCMAC.theta_cbc_eq_theta_cbc_queryLimit`, CR18 equation (6.1): under
+  $\theta_q$ the query limit $[q]$ is redundant;
+- `CBCMAC.cbcCollisionGame_conditionallyEquivalent`, CR18 equation (6.2);
+- `CBCMAC.supWinProb_blind_filterDom_cbc_le`, the blind-game collision bound
+  $q^2 / (2 \lvert X \rvert)$.
 
 ## Modules
 
